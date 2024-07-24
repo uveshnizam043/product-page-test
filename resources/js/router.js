@@ -11,7 +11,16 @@ const router = createRouter({
       path: '/shop/product/:slug',
       name: 'product',
       component: () => import('./views/Product.vue')
-    }
+    },
+    {
+      path: '/404',
+      name: 'PageNotExist',
+      component: () => import('./views/NotFound.vue'),
+    },
+    {
+      path: "/:catchAll(.*)", 
+      redirect: () => ({ name: 'PageNotExist'})
+    },
   ],
 })
 
